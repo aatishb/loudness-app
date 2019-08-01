@@ -22,10 +22,12 @@ var app = new Vue({
     },
 
     sortedTable: function() {
-      let sortedSavedNotes = Object.keys(this.table).sort();
-      let sortedTable = {};
-      for (let note of sortedSavedNotes){
-        sortedTable[note] = this.table[note];
+      sortedTable = {};
+
+      for (let note of this.noteArray){
+        if(this.table[note.note]) {
+          sortedTable[note.note] = this.table[note.note];
+        }
       }
       return sortedTable;
     }
