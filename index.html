@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Load in libraries here -->
+  <script src="https://unpkg.com/vue"></script>
+  <script src="audio.js"></script>
+  <link rel="stylesheet" type="text/css" href="normalize.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script> -->
+
+</head>
+
+<body>
+
+<div id="root"> <!-- Vue can only access things contained within this div -->
+
+  <div class="container">
+
+      <div id="title">
+        <h1>Loudness Curve Generator</h1>
+        <h3>Match the loudness of tones to a reference tone</h3>
+      </div>
+
+    <p>Find a value where the perceived loudness of the selected note matches that of the reference note. When you're happy with the match, save your reading to the table below.</p>
+</p>
+
+    <h2 style="display: inline">Select a note:</h2>
+    <select v-model="selectedNote">
+      <option v-for="note in noteArray" v-bind:value="note">
+        {{ note.note }}
+      </option>
+    </select>
+
+    </br>
+
+    <h2 style="display: inline">Select a loudness: </h2>
+    <input style="display: inline" type="range" :min="minLoudness" :max="maxLoudness" :step="loudnessStepSize" v-model="loudness" ></input>
+    <p>(left = quieter, right = louder)</p>
+
+    <p>Selected Note: {{selectedNote.note}}</p>
+    <p>Frequency: {{selectedNote.freq}} Hz</p>
+    <p>Loudness: {{loudness}} dBFS</p>
+
+    <div>
+      <button @click="playTone">Play selected note</button>
+      <button @click="playReference">Play reference note</button>
+    </div>
+
+    <div>
+      <button @click="addToTable">Save Reading To Table</button>
+    </div>
+
+    <h2>Data Table</h2>
+    <table>
+    <tr>
+      <th>Note</th>
+      <th>Frequency (Hz)</th>
+      <th>Loudness (dBFS)</th>
+      <!--<th>Closest Piano Note</th>-->
+    </tr>
+    <tr v-for="note in Object.keys(sortedTable)">
+      <td>{{note}}</td>
+      <td>{{table[note].freq}}</td>
+      <td>{{table[note].loudness}}</td>
+    </tr>
+    </table>
+
+  </div>
+
+</div>
+
+<script src="vue-definitions.js"></script>
+
+</body>
+</html>
