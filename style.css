@@ -81,6 +81,10 @@ body {
   color: '#444';
 }
 
+strong {
+  font-weight: bold;
+}
+
 img {
   max-width:100%;
 }
