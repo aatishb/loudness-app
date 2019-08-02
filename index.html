@@ -22,11 +22,9 @@
         <h3>Investigating the perceptual nature of loudness</h3>
       </div>
 
-    <p>In this interactive, you can examine how our perception of loudness varies with the frequency of the tone. You can compare the loudness of a set of notes to that of a fixed reference.</p>
+    <p>In this interactive, you can examine how your perception of loudness depends on the frequency of the tone that you're listening to.</p>
 
-    <p>If the perceived loudness of a tone were independent its frequency, then all the notes should sound match the loudness of the reference note at the same volume level. Using this tool, you can investigate the dependence between loudness and frequency.</p>
-
-    <p><strong>Caution:</strong> Notes with different pitches can have *very* different loudnesses, and if you jump from a low pitch to a much higher pitch, you might end up hearing a painfully loud sound. To avoid this, we recommend moving up or down one note at a time (i.e. only switch to nearby notes), and when adjusting the loudness, work your way up very gradually (i.e. don't move the slider all the way to the right).</p>
+    <p><strong>Caution:</strong> Notes that vary in pitch can vary *a lot* in loudness. If you jump from a low pitch to a much higher pitch, you might end up hearing a painfully loud sound. To avoid this, we recommend moving up or down one note at a time (i.e. only switch to nearby notes), and when adjusting the loudness, work your way up very gradually (i.e. don't suddenly shift the slider all the way to the right).</p>
 </p>
 
     <h2 style="display: inline">Select a note:</h2>
@@ -61,7 +59,8 @@
       <button @click="addToTable">Save Reading To Table</button>
     </div>
 
-    <p>When you're happy with the match, save your reading to the table below.</p>
+    </br>
+    <p>When you're happy with the match, save your reading to the table below. If you need, you can always go back and repeat any reading. </p>
 
     <h2>Data Table</h2>
     <table>
@@ -77,6 +76,11 @@
       <td>{{table[note].loudness}}</td>
     </tr>
     </table>
+
+    </br>
+    <p>If the perceived loudness of a tone were independent its frequency, then the loudness levels in the table would all be roughly the same. So, by closely examining this table, you can investigate how your perception of the loudness a note depends on its frequency.</p>
+
+    <p>For example, finding the lowest loudness values in the table will indicate the frequency range in which your hearing is the most sensitive. (An important caveat: because you're listening to this on specific audio hardware, it's difficult to isolate the effect of your hearing from that of your speakers/headphones.)</p>
 
   </div>
 
