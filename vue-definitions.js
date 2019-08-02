@@ -1,6 +1,37 @@
 var app = new Vue({
   el: '#root',
 
+  created: function() {
+    window.addEventListener('keydown', (e) => {
+      if (e.key == 'r') {
+        this.playReference();
+      } else if (e.key == 't') {
+        this.playTone();
+      } else if (e.key == '[') {
+        let i = this.noteArray.findIndex(e => e.note == this.selectedNote.note);
+        if (i > 0) {i--;}
+        this.selectedNote = this.noteArray[i];
+      } else if (e.key == ']') {
+        let i = this.noteArray.findIndex(e => e.note == this.selectedNote.note);
+        if (i < this.noteArray.length - 1) {i++;}
+        this.selectedNote = this.noteArray[i];
+      } else if (e.key == 'Enter') {
+        this.addToTable();
+      } else if (e.key == '=' || e.key == '+') {
+        if (this.loudness < this.maxLoudness) {
+          this.loudness += this.loudnessStepSize;
+          this.loudness = Math.round(100*this.loudness)/100;
+        }
+      } else if (e.key == '-' || e.key == '_') {
+        if (this.loudness > this.minLoudness) {
+          this.loudness -= this.loudnessStepSize;
+          this.loudness = Math.round(100*this.loudness)/100;
+        }
+      }
+    });
+  },
+
+
   computed: {
     noteArray: function() {
       let octaves = Array(9).fill(0).map((e,i) => i + 1); // [1 .. 9]
@@ -71,6 +102,8 @@ var app = new Vue({
      });
 
      /*
+     // using the approach above instead of the one below
+     // because otherwise Vue doesn't detect when a part of an object changes
      this.table[this.selectedNote.note] = {
         freq: this.selectedNote.freq,
         loudness: this.loudness

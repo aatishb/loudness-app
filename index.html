@@ -24,7 +24,44 @@
 
     <p>In this interactive, you can examine how your perception of loudness depends on the frequency of the tone that you're listening to.</p>
 
-    <p><strong>Caution:</strong> Notes that vary in pitch can vary *a lot* in loudness. If you jump from a low pitch to a much higher pitch, you might end up hearing a painfully loud sound. To avoid this, we recommend moving up or down one note at a time (i.e. only switch to nearby notes), and when adjusting the loudness, work your way up very gradually (i.e. don't suddenly shift the slider all the way to the right).</p>
+    <h2>Tips</h2>
+    <p>This is best done with headphones, and we suggest setting the volume of your computer to something comfortable (not too loud or soft) to start with the reference note. That way you shouldn’t find yourself wanting to turn the overall volume up or down as you work through the different pitches.</p>
+
+    <p>You can use the following keyboard shortcuts to speed things along</p>
+    <div class="centerbox">
+      <table>
+      <tr>
+        <th><strong>r</strong></th>
+        <th>Play reference tone</th>
+      </tr>
+      <tr>
+        <th><strong>t</strong></th>
+        <th>Play selected tone</th>
+      </tr>
+      <tr>
+        <th><strong>+</strong></th>
+        <th>Increment loudness</th>
+      </tr>
+      <tr>
+        <th><strong>-</strong></th>
+        <th>Decrement loudness</th>
+      </tr>
+      <tr>
+        <th><strong>[</strong></th>
+        <th>Switch to previous note</th>
+      </tr>
+      <tr>
+        <th><strong>]</strong></th>
+        <th>Switch to next note</th>
+      </tr>
+      <tr>
+        <th><strong>Enter</strong></th>
+        <th>Save note to table</th>
+      </tr>
+    </table>
+    </div>
+
+    <p><strong>Caution:</strong> Notes that vary in pitch can vary quite a bit in loudness. If you jump from a low pitch to a much higher pitch, you might end up hearing a painfully loud sound. To avoid this, we recommend moving up or down one note at a time (i.e. only switch to nearby notes), and when adjusting the loudness, work your way up very gradually (i.e. don't suddenly shift the slider all the way to the right).</p>
 </p>
 
     <h2 style="display: inline">Select a note:</h2>
@@ -45,7 +82,7 @@
 
     <h2 style="display: inline">Select a loudness: </h2>
     <input style="display: inline" type="range" :min="minLoudness" :max="maxLoudness" :step="loudnessStepSize" v-model="loudness" ></input>
-    <p>Adjust loudness until the tones match. left = quieter, right = louder</p>
+    <p>Adjust loudness until the tones match (left = quieter, right = louder). After clicking on the slider, you can use the left or right arrow keys to make fine-grained adjustments.</p>
 
     <div class="centerbox">
       <div>Selected Note: {{selectedNote.note}}</div>
