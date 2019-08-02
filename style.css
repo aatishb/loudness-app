@@ -8,6 +8,65 @@ th, td {
   text-align: left;
 }
 
+.cards {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card {
+  padding: 2px;
+  margin: 2px;
+}
+
+button {
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  margin: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  -webkit-border-radius: 28;  -moz-border-radius: 28;  border-radius: 28px;
+
+}
+
+button:hover {
+
+  background: #2079b0;
+
+  background-image: -webkit-linear-gradient(top, #eb94d0, #2079b0);  background-image: -moz-linear-gradient(top, #eb94d0, #2079b0);  background-image: -ms-linear-gradient(top, #eb94d0, #2079b0);  background-image: -o-linear-gradient(top, #eb94d0, #2079b0);  background-image: linear-gradient(to bottom, #eb94d0, #2079b0);
+  text-decoration: none;
+}
+
+button:active {
+  background-image: -webkit-linear-gradient(top, #2079b0, #eb94d0);  background-image: -moz-linear-gradient(top, #2079b0, #eb94d0);  background-image: -ms-linear-gradient(top, #2079b0, #eb94d0);  background-image: -o-linear-gradient(top, #2079b0, #eb94d0);  background-image: linear-gradient(to bottom, #2079b0, #eb94d0);
+}
+
+.centerbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+}
+.centerbox > div {
+  font-size: 1.3rem;
+  padding: 5px;
+  margin: 5px;
+}
+
+.clicked > a {
+  color: grey;
+}
+
+.selected > a {
+  color: purple;
+  font-weight: bold;
+}
+
 .center {
   width: 60%;
   margin: 0 auto;

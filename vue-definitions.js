@@ -30,7 +30,12 @@ var app = new Vue({
         }
       }
       return sortedTable;
+    },
+
+    notesInTable: function() {
+      return Object.keys(this.table);
     }
+
   },
 
   methods: {
@@ -86,7 +91,7 @@ var app = new Vue({
     refFreq: 880,
     refLoudness: -14,
 
-    selectedNote: {note: 'A1', freq: 55},
+    selectedNote: {note: 'A5', freq: 880},
     loudness: -70,
 
     table: {}

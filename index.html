@@ -22,7 +22,7 @@
         <h3>Match the loudness of tones to a reference tone</h3>
       </div>
 
-    <p>Find a value where the perceived loudness of the selected note matches that of the reference note. When you're happy with the match, save your reading to the table below.</p>
+    <p>Find out where the perceived loudness of the selected note matches that of the reference note.</p>
 </p>
 
     <h2 style="display: inline">Select a note:</h2>
@@ -31,25 +31,33 @@
         {{ note.note }}
       </option>
     </select>
+    <p>Use the drop down menu or click on a note below.</p>
+
+    <div class="cards">
+        <div class="card" :class="{selected: note.note == selectedNote.note, clicked: notesInTable.includes(note.note)}" v-for="note in noteArray" @click="selectedNote = note">
+          <a>{{note.note}}</a>
+        </div>
+    </div>
 
     </br>
 
     <h2 style="display: inline">Select a loudness: </h2>
     <input style="display: inline" type="range" :min="minLoudness" :max="maxLoudness" :step="loudnessStepSize" v-model="loudness" ></input>
-    <p>(left = quieter, right = louder)</p>
+    <p>Adjust loudness until the tones match. left = quieter, right = louder</p>
 
-    <p>Selected Note: {{selectedNote.note}}</p>
-    <p>Frequency: {{selectedNote.freq}} Hz</p>
-    <p>Loudness: {{loudness}} dBFS</p>
+    <div class="centerbox">
+      <div>Selected Note: {{selectedNote.note}}</div>
+      <div>Frequency: {{selectedNote.freq}} Hz</div>
+      <div>Loudness: {{loudness}} dBFS</div>
+    </div>
 
     <div>
       <button @click="playTone">Play selected note</button>
       <button @click="playReference">Play reference note</button>
-    </div>
-
-    <div>
       <button @click="addToTable">Save Reading To Table</button>
     </div>
+
+    <p>When you're happy with the match, save your reading to the table below.</p>
 
     <h2>Data Table</h2>
     <table>
